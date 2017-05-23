@@ -1,7 +1,7 @@
 Open IE 5.0
 ======
 This project contains the principal Open Information Extraction (Open IE)
-system from the University of Washington (UW) and Indian Institute of Technology,Delhi(IIT Delhi).  An Open IE system runs over
+system from the University of Washington (UW) and Indian Institute of Technology,Delhi (IIT Delhi).  An Open IE system runs over
 sentences and creates extractions that represent relations in text.  For
 example, consider the following sentence.
 
@@ -42,10 +42,6 @@ have a correct extraction.
     Some people say:(Barack Obama, was born in, Kenya)
 
 To see an example of Open IE being used, please visit http://openie.cs.washington.edu/.
-
-## Notifications
-
-* [01/15/2016] The version 4.2.0 is released ([release notes](https://github.com/knowitall/openie/blob/master/release/release_notes.md)).
 
 ## Google Group
 
