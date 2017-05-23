@@ -132,7 +132,6 @@ class OpenIE(parser: DependencyParser = new ClearParser(), srl: Srl = new ClearS
       }
       val totalNumberOfPatterns = 1000
       val confidence = (totalNumberOfPatterns-inst.patternNumber)/(totalNumberOfPatterns.toFloat)
-      println(confidence)
       val extr = new Extraction(
         rel = new Relation(inst.relation.text, Seq(inst.relation.offsetInterval)),
         arg1 = new SimpleArgument(inst.argument.text, Seq(inst.argument.offsetInterval)),
