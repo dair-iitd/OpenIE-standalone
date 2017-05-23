@@ -84,7 +84,7 @@ First create the stand-alone jar.
 
 You may need to add the above memory options.
 
-    sbt -J-Xmx2700M clean compile assembly
+    sbt -J-Xmx4000M clean compile assembly
 
 Then you can run the resulting jar file as normal.
 
