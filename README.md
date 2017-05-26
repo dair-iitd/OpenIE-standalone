@@ -90,7 +90,7 @@ You may need to add the above memory options.
 
     java -Xmx4g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar
     
-The WordNet folder must be palced parallel to the jar, while running it.
+The WordNet folder must be placed parallel to the jar, while running it.
 
 ### Command Line Interface
 
