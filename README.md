@@ -54,7 +54,7 @@ Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.
 
 ## Buiding
 
-First, download the standalone jar for BONIE from [here](https://drive.google.com/open?id=0B-5EkZMOlIt2V0JLVmlvd2xPc3c) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
+First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) or [here](https://drive.google.com/open?id=0B-5EkZMOlIt2V0JLVmlvd2xPc3c) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
 
 `openie` uses java-7-openjdk & the [sbt build system](http://www.scala-sbt.org/), so downloading
 dependencies and compiling is simple.  Just run:
