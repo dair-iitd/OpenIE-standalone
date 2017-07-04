@@ -19,6 +19,7 @@ import edu.knowitall.tool.srl.RemoteSrl
 import edu.knowitall.tool.srl.ClearSrl
 import edu.knowitall.tool.sentence.OpenNlpSentencer
 import edu.knowitall.openie.util.SentenceIterator
+import edu.iitd.cse.openieListExtractor.extractors.ListExtractorLanguageModelBasedExtractor
 
 /***
  * A command line application for exploring Open IE.
@@ -191,6 +192,9 @@ object OpenIECli extends App {
   def run(config: Config) {
     // the extractor system
     val openie = new OpenIE(parser=config.createParser(), srl=config.createSrl(),config.binary, config.includeUnknownArg2)
+    
+    println("Initializing Language Model")
+    ListExtractorLanguageModelBasedExtractor.languageModel = ListExtractorLanguageModelBasedExtractor.getLanguageModel()
     
     println("* * * * * * * * * * * * *")
     println("* OpenIE 5.0 is ready *")

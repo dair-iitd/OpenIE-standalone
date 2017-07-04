@@ -23,6 +23,7 @@ import edu.knowitall.tool.stem.MorphaStemmer
 import edu.knowitall.tool.tokenize.ClearTokenizer
 import edu.iitd.cse.open_nre.onre.helper.MayIHelpYou
 import edu.iitd.cse.open_nre.onre.domain.OnreExtraction
+import edu.iitd.cse.openieListExtractor.helper.ListExtractorMainHelpers
 import org.apache.commons.lang.mutable.Mutable
 
 class OpenIE(parser: DependencyParser = new ClearParser(), srl: Srl = new ClearSrl(), triples: Boolean = false, includeUnknownArg2: Boolean = false) {
@@ -143,21 +144,43 @@ class OpenIE(parser: DependencyParser = new ClearParser(), srl: Srl = new ClearS
     }
     
     def removeDuplicateExtractions(instances : Seq[Instance]): Seq[Instance] = {
-      var relationsMap = collection.mutable.Map[String, Boolean]()
+      var extractionsMap = collection.mutable.Map[String, Boolean]()
       var newInstances = List[Instance]()
       
       for ( instance <- instances) {
-        if(!relationsMap.contains(instance.extraction.rel.text)) {
+        if(!extractionsMap.contains(instance.extraction.toString())) {
           newInstances ::= instance
-          relationsMap.put(instance.extraction.rel.text, true) 
+          extractionsMap.put(instance.extraction.toString(), true) 
         }
       }
       newInstances
     }
 
-    val extrs = (srlExtrs map convertSrl) ++ (relnounExtrs map convertRelnoun) ++ (onreExtrs map convertOnre) 
-
-    removeDuplicateExtractions(extrs)
+    val newSentences = ListExtractorMainHelpers.helperMainSentences(parser, parsed).asScala
+    if (newSentences.size == 0) {
+      newSentences.append(sentence)
+    }
+    
+    var totalExtrs = Seq[Instance]()
+    
+    for (newSentence <- newSentences) {
+      val cleaned = clean(newSentence)
+      val chunked = chunker(cleaned) map MorphaStemmer.lemmatizePostaggedToken
+      val parsed = parser(cleaned)
+      
+      // run extractors
+      val srlExtrs: Seq[SrlExtractionInstance] =
+        if (isTriples) srlie(parsed).flatMap(_.triplize())
+        else srlie(parsed)
+      val relnounExtrs = relnoun(chunked)
+      val onreExtrs = MayIHelpYou.runMe(parsed).asScala.keys;
+      
+      val extrs = (srlExtrs map convertSrl) ++ (relnounExtrs map convertRelnoun) ++ (onreExtrs map convertOnre)
+      
+      totalExtrs = totalExtrs ++ extrs
+    }
+    
+    removeDuplicateExtractions(totalExtrs)
   } 
 }
 

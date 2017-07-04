@@ -45,7 +45,7 @@ scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 // custom options for high memory usage
 
-javaOptions += "-Xmx4G"
+javaOptions += "-Xmx10G"
 
 javaOptions += "-XX:+UseConcMarkSweepGC"
 
