@@ -50,11 +50,15 @@ To see an example of Open IE being used, please visit http://openie.cs.washingto
 ## Research
 
 Open IE 5.0 is the successor to Open IE 4.x and Open IE 4.x is the successor to [Ollie](http://www.gitub.com/knowitall/ollie).
-Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)) and numerical relations([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
+Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical relations([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences. Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
 
 ## Buiding
 
-First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) or [here](https://drive.google.com/open?id=0B-5EkZMOlIt2V0JLVmlvd2xPc3c) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
+First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) or [here](https://drive.google.com/file/d/0B-5EkZMOlIt2V0JLVmlvd2xPc3c/view?usp=sharing) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
+
+Also, download the standalone jar for Conjunctive Sentences work from [here](https://drive.google.com/file/d/0B-5EkZMOlIt2TkIxeFpyR05HTnc/view?usp=sharing) and place it inside the `lib` folder.
+
+Extractions from Conjunctive Sentences uses Berkeley Language Model. Download the Language Model file from [here]
 
 `openie` uses java-7-openjdk & the [sbt build system](http://www.scala-sbt.org/), so downloading
 dependencies and compiling is simple.  Just run:
@@ -66,7 +70,9 @@ dependencies and compiling is simple.  Just run:
 You can run `openie` with sbt or create a stand-alone jar.  `openie` requires
 substantial memory.  `sbt` is configured to use these options by default:
 
-   -Xmx4G -XX:+UseConcMarkSweepGC
+   -Xmx10G -XX:+UseConcMarkSweepGC
+   
+OpenIE's large memory requirements largely accounts to the fact that it currently uses Berkeley Language Model in the background.
 
 ### Running with sbt
 
@@ -80,7 +86,7 @@ First create the stand-alone jar.
 
 You may need to add the above memory options.
 
-    sbt -J-Xmx4000M clean compile assembly
+    sbt -J-Xmx10000M clean compile assembly
 
 Then you can run the resulting jar file as normal.
 
@@ -88,7 +94,7 @@ Then you can run the resulting jar file as normal.
 
 You may need to add the above memory options.
 
-    java -Xmx4g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar
+    java -Xmx10g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar
     
 The WordNet folder must be placed parallel to the jar, while running it.
 
