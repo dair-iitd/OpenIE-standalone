@@ -43,9 +43,9 @@ have a correct extraction.
 
 To see an example of Open IE being used, please visit http://openie.cs.washington.edu/.
 
-## Citing Open IE 5
+## Citing Open IE 5.0
 
-Open IE 4 is a combination of SRLIE, Relnoun and BONIE. The relevant papers for these three are:
+Open IE 5.0 is a combination of SRLIE, Relnoun and BONIE. The relevant papers for these three are:
 
     1. Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011.
     
