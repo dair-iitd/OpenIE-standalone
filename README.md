@@ -43,9 +43,44 @@ have a correct extraction.
 
 To see an example of Open IE being used, please visit http://openie.cs.washington.edu/.
 
+## Improvements over Open IE 4.0
+
+Firstly, Open IE 5.0 improves upon extractions from numerical sentences. For example, consider the following sentence.
+
+    Barack Obama is 6 feet tall.
+
+Open IE 5.0 gives the following extractions:
+    
+    (Barack Obama, has height of, 6 feet)
+    (Barack Obama, is, 6 feet tall)
+
+Open IE 5.0 can also extract implicit numerical relations from units in sentences. For example, consider the following sentence.
+
+    James Valley has 5 sq kms of fruit orchards.
+    
+The extractions are the following:
+
+    (James Valley, has area of fruit orchards, 5 sq kms)
+    (James Valley, has, 5 sq kms of fruit orchards)
+    
+
+Secondly, Open IE 5.0 improves upon conjunctive sentences by breaking conjunctions in arguments to generate multiple extractions. For example, consider the following sentence.
+
+    Jack and Jill visited India, Japan and South Korea.
+    
+Open IE 5.0 gives the following extractions:
+
+    (Jack, visited, India)
+    (Jill, visited, India)
+    (Jack, visited, Japan)
+    (Jill, visited, Japan)
+    (Jack, visited, South Korea)
+    (Jill, visited, South Korea)
+    
+
 ## Citing Open IE 5.0
 
-Open IE 5.0 is a combination of SRLIE, Relnoun and BONIE. The relevant papers for these three are:
+Open IE 5.0 is a combination of SRLIE, Relnoun, BONIE(Extraction from Numerical Sentences) and ListExtraction(Extraction from conjunctive sentences). The relevant papers for the first three are:
 
     1. Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011.
     
@@ -69,9 +104,9 @@ Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.
 
 ## Buiding
 
-First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) or [here](https://drive.google.com/file/d/0B-5EkZMOlIt2V0JLVmlvd2xPc3c/view?usp=sharing) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
+First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
 
-Also, download the standalone jar for Conjunctive Sentences work from [here](https://drive.google.com/file/d/0B-5EkZMOlIt2TkIxeFpyR05HTnc/view?usp=sharing) and place it inside the `lib` folder.
+Also, download the standalone jar for Conjunctive Sentences work from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/ListExtractor.jar) and place it inside the `lib` folder.
 
 Extractions from Conjunctive Sentences uses Berkeley Language Model. Download the Language Model file from [here](https://drive.google.com/file/d/0B-5EkZMOlIt2cFdjYUJZdGxSREU/view?usp=sharing) and place it inside a data folder(create the `data` folder parallel to the `src` folder)
 
