@@ -114,6 +114,8 @@ Extractions from Conjunctive Sentences uses Berkeley Language Model. Download th
 dependencies and compiling is simple.  Just run:
 
     sbt compile
+    
+Open IE uses scala 2.10.2. In case of a version mismatch problem, try using Scala 2.10.2.
 
 ## Running
 
