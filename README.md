@@ -82,15 +82,15 @@ Open IE 5.0 gives the following extractions:
 
 Open IE 5.0 is a combination of SRLIE, Relnoun, BONIE(Extraction from Numerical Sentences) and ListExtraction(Extraction from conjunctive sentences). The relevant papers for the first three are:
 
-    1. Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011.
+   1. Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/kcap11.pdf)
     
-    2. Harinder Pal, Mausam. "Demonyms and Compound Relational Nouns in Nominal Open IE". Workshop on Automated Knowledge Base Construction (AKBC) at NAACL. San Diego, CA, USA. June 2016.
+   2. Harinder Pal, Mausam. "Demonyms and Compound Relational Nouns in Nominal Open IE". Workshop on Automated Knowledge Base Construction (AKBC) at NAACL. San Diego, CA, USA. June 2016. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/akbc16.pdf)
     
-    3. Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. 
+   3. Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/acl17.pdf)
     
 A survey paper summarizing about ten years of progress in Open IE:
     
-    Mausam. "Open Information Extraction Systems and Downstream Applications". Invited Paper for Early Career Spotlight Track. International Joint Conference on Artificial Intelligence (IJCAI). New York, NY. July 2016.
+   Mausam. "Open Information Extraction Systems and Downstream Applications". Invited Paper for Early Career Spotlight Track. International Joint Conference on Artificial Intelligence (IJCAI). New York, NY. July 2016. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/ijcai16a.pdf)
 
 
 ## Google Group
