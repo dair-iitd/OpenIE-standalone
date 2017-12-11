@@ -1,6 +1,7 @@
 package edu.knowitall.openie
 
 import scala.collection.JavaConverters._
+import scala.collection.mutable.ListBuffer
 import com.google.common.base.CharMatcher
 import edu.knowitall.chunkedextractor.BinaryExtractionInstance
 import edu.knowitall.chunkedextractor.Relnoun
@@ -156,9 +157,17 @@ class OpenIE(parser: DependencyParser = new ClearParser(), srl: Srl = new ClearS
       newInstances
     }
 
-    val newSentences = ListExtractorMainHelpers.helperMainSentences(parser, parsed).asScala
+    var newSentences = ListExtractorMainHelpers.helperMainSentences(parser, parsed).asScala
+    val notSplittableConjuncts = Set("or", "nor")
     if (newSentences.size == 0) {
       newSentences.append(sentence)
+    }
+    else {
+    	val words = sentence.split(" ")
+    	if(words.exists(notSplittableConjuncts contains _)) {
+    		newSentences = new ListBuffer[String]()
+    		newSentences += sentence
+    	}
     }
     
     var totalExtrs = Seq[Instance]()
