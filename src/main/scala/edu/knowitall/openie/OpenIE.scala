@@ -159,12 +159,15 @@ class OpenIE(parser: DependencyParser = new ClearParser(), srl: Srl = new ClearS
 
     var newSentences = ListExtractorMainHelpers.helperMainSentences(parser, parsed).asScala
     val notSplittableConjuncts = Set("or", "nor")
+    // TODO: Check in the original extractions. Keeping things simple for now.
+    val notSplittableTriggers = Set("among", "sum", "total", "addition", "amount", "value", "aggregate", "gross",
+    	"mean", "median", "average", "center", "equidistant", "middle")
     if (newSentences.size == 0) {
       newSentences.append(sentence)
     }
     else {
-    	val words = sentence.split(" ")
-    	if(words.exists(notSplittableConjuncts contains _)) {
+    	val words = sentence.toLowerCase.split(" ")
+    	if(words.exists(notSplittableConjuncts contains _) || words.exists(notSplittableTriggers contains _)) {
     		newSentences = new ListBuffer[String]()
     		newSentences += sentence
     	}
