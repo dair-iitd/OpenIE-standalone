@@ -7,3 +7,5 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "0.6.2")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8.1")
+
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "2.0")

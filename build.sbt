@@ -55,35 +55,59 @@ fork in Test := true
 
 connectInput in run := true // forward stdin/out to fork
 
-licenses := Seq("Open IE Software License Agreement" -> url("https://raw.github.com/knowitall/openie/master/LICENSE"))
+licenses := Seq("Open IE 4 Software License Agreement" -> url("https://raw.githubusercontent.com/knowitall/openie/master/LICENSE"))
 
-homepage := Some(url("https://github.com/knowitall/openie"))
+homepage := Some(url("https://github.com/dair-iitd/OpenIE-standalone"))
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/dair-iitd/OpenIE-standalone"),
+    "scm:git@github.com:dair-iitd/OpenIE-standalone.git"
+  )
+)
+
+developers := List(
+  Developer(
+    id    = "Your identifier",
+    name  = "Michael Schmitz",
+    email = "your@email",
+    url   = url("http://your.url")
+  ),
+  Developer(
+    id    = "Your identifier",
+    name  = "Bhadra Mani",
+    email = "your@email",
+    url   = url("http://your.url")
+  ),
+  Developer(
+    id    = "swarnaHub",
+    name  = "Swarnadeep Saha",
+    email = "your@email",
+    url   = url("https://www.linkedin.com/in/swarnadeep-saha-b43a617b?trk=hp-identity-name")
+  ),
+  Developer(
+    id    = "harrysethi",
+    name  = "Harinder Sethi",
+    email = "sethi.harinder@gmail.com",
+    url   = url("https://about.me/harinder.pal")
+  ),
+)
 
 publishMavenStyle := true
 
-publishTo <<= version { (v: String) =>
+useGpg := true
+
+pomIncludeRepository := { _ => false }
+
+publishTo := {
   val nexus = "https://oss.sonatype.org/"
-  if (v.trim.endsWith("SNAPSHOT"))
+  if (isSnapshot.value)
     Some("snapshots" at nexus + "content/repositories/snapshots")
   else
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
 
-pomExtra := (
-  <scm>
-    <url>https://github.com/knowitall/openie</url>
-    <connection>scm:git://github.com/knowitall/openie.git</connection>
-    <developerConnection>scm:git:git@github.com:knowitall/openie.git</developerConnection>
-    <tag>HEAD</tag>
-  </scm>
-  <developers>
-   <developer>
-      <name>Michael Schmitz</name>
-    </developer>
-    <developer>
-      <name>Bhadra Mani</name>
-    </developer>
-  </developers>)
+publishArtifact in Test := false
 
 packagerSettings
 
