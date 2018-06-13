@@ -80,17 +80,19 @@ Open IE 5.0 gives the following extractions:
 
 ## Citing Open IE 5.0
 
-Open IE 5.0 is a combination of SRLIE, Relnoun, BONIE(Extraction from Numerical Sentences) and ListExtraction(Extraction from conjunctive sentences). The relevant papers for the first three are:
-
-   1. Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/kcap11.pdf)
+Open IE 5.0 is a combination of CALMIE(Extraction from conjunctive sentences), BONIE(Extraction from Numerical Sentences), RelNoun and SRLIE. The relevant papers are:
+   
+   1. CALMIE - Swarnadeep Saha, Mausam. "Open Information Extraction from Conjunctive Sentences." International Conference on Computational Linguistics (COLING). Santa Fe, NM, USA. August 2018. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)
     
-   2. Harinder Pal, Mausam. "Demonyms and Compound Relational Nouns in Nominal Open IE". Workshop on Automated Knowledge Base Construction (AKBC) at NAACL. San Diego, CA, USA. June 2016. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/akbc16.pdf)
-    
-   3. Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/acl17.pdf)
+   2. BONIE - Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/acl17.pdf)
+   
+   3. RelNoun - Harinder Pal, Mausam. "Demonyms and Compound Relational Nouns in Nominal Open IE". Workshop on Automated Knowledge Base Construction (AKBC) at NAACL. San Diego, CA, USA. June 2016. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/akbc16.pdf)
+   
+    4. SRLIE - Janara Christensen, Mausam, Stephen Soderland, Oren Etzioni. "An Analysis of Open Information Extraction based on Semantic Role Labeling". International Conference on Knowledge Capture (KCAP). Banff, Alberta, Canada. June 2011. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/kcap11.pdf)
     
 A survey paper summarizing about ten years of progress in Open IE:
     
-   Mausam. "Open Information Extraction Systems and Downstream Applications". Invited Paper for Early Career Spotlight Track. International Joint Conference on Artificial Intelligence (IJCAI). New York, NY. July 2016. [pdf](http://www.cse.iitd.ac.in/~mausam/papers/ijcai16a.pdf)
+   Mausam. "Open Information Extraction Systems and Downstream Applications". Invited Paper for Early Career Spotlight Track. International Joint Conference on Artificial Intelligence (IJCAI). New York, NY. July 2016. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/ijcai16a.pdf)
 
 
 ## Google Group
@@ -100,7 +102,7 @@ A survey paper summarizing about ten years of progress in Open IE:
 ## Research
 
 Open IE 5.0 is the successor to Open IE 4.x and Open IE 4.x is the successor to [Ollie](http://www.gitub.com/knowitall/ollie).
-Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical relations([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences([ListExtractor](https://github.com/swarnaHub/OpenIEListExtractor)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
+Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical relations([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences([CALMIE](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
 
 ## Buiding
 
