@@ -85,7 +85,7 @@ Open IE 5.0 is a combination of CALMIE(Extraction from conjunctive sentences), B
    
    1. CALMIE - Swarnadeep Saha, Mausam. "Open Information Extraction from Conjunctive Sentences." International Conference on Computational Linguistics (COLING). Santa Fe, NM, USA. August 2018. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)
     
-   2. BONIE - Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/acl17.pdf)
+   2. BONIE - Swarnadeep Saha, Harinder Pal, Mausam. "Bootstrapping for Numerical Open IE". Annual Meeting of the Association for Computational Linguistics (ACL). Vancouver, Canada. August 2017. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/acl17.pdf) [[data]](https://github.com/dair-iitd/OpenIE-standalone/tree/master/data)
    
    3. RelNoun - Harinder Pal, Mausam. "Demonyms and Compound Relational Nouns in Nominal Open IE". Workshop on Automated Knowledge Base Construction (AKBC) at NAACL. San Diego, CA, USA. June 2016. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/akbc16.pdf)
    
