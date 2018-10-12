@@ -109,9 +109,9 @@ Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.
 
 First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
 
-Also, download the standalone jar for Conjunctive Sentences work from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/ListExtractor.jar) and place it inside the `lib` folder.
+Also, download the standalone jar for CALMIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/ListExtractor.jar) and place it inside the `lib` folder.
 
-Extractions from Conjunctive Sentences uses Berkeley Language Model. Download the Language Model file from [here](https://drive.google.com/file/d/0B-5EkZMOlIt2cFdjYUJZdGxSREU/view?usp=sharing) and place it inside a data folder(create the `data` folder parallel to the `src` folder)
+CALMIE uses Berkeley Language Model. Download the Language Model file from [here](https://drive.google.com/file/d/0B-5EkZMOlIt2cFdjYUJZdGxSREU/view?usp=sharing) and place it inside a data folder(create the `data` folder parallel to the `src` folder)
 
 `openie` uses java-7-openjdk & the [sbt build system](http://www.scala-sbt.org/), so downloading
 dependencies and compiling is simple.  Just run:
