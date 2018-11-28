@@ -2,25 +2,23 @@ import sbt._
 import Keys._
 
 import sbtrelease._
-import ReleasePlugin._
-import ReleaseKeys._
 import ReleaseStateTransformations._
 import Utilities._
-
-import com.typesafe.sbt.SbtPgp.PgpKeys._
+import sbtrelease.ReleasePlugin.autoImport._
+import com.typesafe.sbt.pgp.PgpKeys._
 
 object ReleaseSettings {
-  val defaults = releaseSettings ++ Seq(
-    releaseProcess := Seq[ReleaseStep](
-      checkSnapshotDependencies,
-      inquireVersions,
-      runTest,
-      setReleaseVersion,
-      commitReleaseVersion,
-      tagRelease,
-      publishArtifacts.copy(action = publishSignedAction),
-      setNextVersion,
-      commitNextVersion
+    val defaults = Seq(
+        releaseProcess := Seq[ReleaseStep](
+        checkSnapshotDependencies,
+        inquireVersions,
+        runTest,
+        setReleaseVersion,
+        commitReleaseVersion,
+        tagRelease,
+        publishArtifacts.copy(action = publishSignedAction),
+        setNextVersion,
+        commitNextVersion
     ))
 
   lazy val publishSignedAction = { st: State =>

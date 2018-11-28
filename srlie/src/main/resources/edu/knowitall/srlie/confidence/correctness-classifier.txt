@@ -1,0 +1,25 @@
+< 2 frame arguments	-0.0
+> 2 frame arguments	-4.4944734711519293E-4
+Intercept	0.031644501110313895
+all arg2s appear after rel in sentence	0.031644501110313895
+an arg2 contains > 10 tokens	-0.01876580492100638
+arg1 appears before rel in sentence	0.031644501110313895
+arg1 borders rel	0.01099571975218925
+arg1 contains > 10 tokens	-0.08830374355608572
+arg1 contains a pronoun or EX	-0.18461639648831069
+arg1 contains bad characters	-0.008040901402781374
+arg1 is blacklisted	-0.0328917832465959
+arg1 is noun	0.3841586915256809
+arg1 is proper	0.058780273157119076
+arg2 borders rel	0.11731326074114343
+arg2 is blacklisted	-0.2704194905302396
+at least one arg2 contains a pronoun or EX	-0.416585274956371
+at least one arg2 is noun	0.8676769321313569
+at least one arg2 is proper	0.0659338679191022
+hierarchical frames	-0.4459376935562439
+intransitive extraction	0.0
+nary extraction	0.0
+rel contains > 10 tokens	0.0
+rel contains bad characters	-0.0043600598095811125
+rel contains verb	0.031644501110313895
+rel contiguous	0.2775631249573174
