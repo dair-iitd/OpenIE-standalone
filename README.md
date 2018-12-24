@@ -105,7 +105,7 @@ A survey paper summarizing about ten years of progress in Open IE:
 Open IE 5.0 is the successor to Open IE 4.x and Open IE 4.x is the successor to [Ollie](http://www.gitub.com/knowitall/ollie).
 Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical sentences([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences([CALMIE](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
 
-## Buiding
+## Building
 
 First, download the standalone jar for BONIE from [here](https://github.com/dair-iitd/OpenIE-standalone/releases/download/v5.0/BONIE.jar) and place it inside a `lib` folder(create the `lib` folder parallel to the `src` folder).
 
@@ -137,6 +137,8 @@ substantial memory.  `sbt` is configured to use these options by default:
 OpenIE's large memory requirements largely accounts to the fact that it currently uses Berkeley Language Model in the background.
 
 ### Running with sbt
+
+For running without jar:
 
     sbt 'runMain edu.knowitall.openie.OpenIECli'
 
