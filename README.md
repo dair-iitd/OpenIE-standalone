@@ -202,3 +202,4 @@ chosen by default.
 ### Contact
 
 * Swarnadeep Saha( writetoswarna@gmail.com )
+* Vaibhav Adlakha( vaibhavadlakha95@gmail.com )
