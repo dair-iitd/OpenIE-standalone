@@ -21,6 +21,9 @@ import edu.knowitall.tool.sentence.OpenNlpSentencer
 import edu.knowitall.openie.util.SentenceIterator
 import edu.iitd.cse.openieListExtractor.extractors.ListExtractorLanguageModelBasedExtractor
 
+import java.net.InetSocketAddress
+import com.sun.net.httpserver.HttpServer
+
 /***
  * A command line application for exploring Open IE.
  *
@@ -84,6 +87,7 @@ object OpenIECli extends App {
    * @param  encoding  The input and output character encoding
    * @param  formatter  The OutputFormat subclass to be used for output
    * @param  split  If true, input text is split into sentences
+   * @param  httpPort Http Port on which to run the OpenIE Server
    */
   case class Config(inputFile: Option[File] = None,
     outputFile: Option[File] = None,
@@ -95,7 +99,8 @@ object OpenIECli extends App {
     showUsage: Boolean = false,
     binary: Boolean = false,
     split: Boolean = false,
-    includeUnknownArg2: Boolean = false) {
+    includeUnknownArg2: Boolean = false,
+    httpPort: Int = -1) {
 
     /***
      * Create the input source from a file or stdin.
@@ -152,6 +157,10 @@ object OpenIECli extends App {
       opt("format", "Output format") { (string, config) =>
         config.copy(formatter = OutputFormat.parse(string))
       },
+      intOpt("httpPort", "Http Port on which to run OpenIE as a server") { (port, config) =>
+        require(port >= 0 && port <= 65535, "Please enter a valid HTTP Port")
+        config.copy(httpPort = port)
+      },
       flag("u", "usage", "show cli usage") { config =>
         config.copy(showUsage = true)
       },
@@ -171,33 +180,57 @@ object OpenIECli extends App {
 
   argumentParser.parse(args, Config()) match {
     case Some(config) if config.showUsage => println(argumentParser.usage)
-    case Some(config) =>
+    case Some(config) if (config.httpPort >= 0) =>
       try {
-        run(config)
-      }
-      catch {
+        val openie = new OpenIE(parser = config.createParser(), srl = config.createSrl(), config.binary, config.includeUnknownArg2)
+        println("Initializing Language Model")
+        ListExtractorLanguageModelBasedExtractor.languageModel = ListExtractorLanguageModelBasedExtractor.getLanguageModel()
+        println("* * * * * * * * * * * * *")
+        println("* OpenIE 5.1 is ready *")
+        println("* * * * * * * * * * * * *")
+        val server = HttpServer.create(new InetSocketAddress(config.httpPort), 0)
+        server.createContext("/getExtraction", new RootHandler(openie: OpenIE))
+        server.setExecutor(null)
+        server.start()
+        println("Server started at port " + config.httpPort + " ...")
+        //run(config, openie)
+      } catch {
         case e: MalformedInputException =>
           System.err.println(
             "\nError: a MalformedInputException was thrown.\n" +
-            "This usually means there is a mismatch between what is expected and the input file.\n" +
-            "Try changing the input file's character encoding to UTF-8 or specifying the correct character encoding for the input file with '--encoding'.\n")
+              "This usually means there is a mismatch between what is expected and the input file.\n" +
+              "Try changing the input file's character encoding to UTF-8 or specifying the correct character encoding for the input file with '--encoding'.\n"
+          )
           e.printStackTrace()
       }
-    case None => // usage will be shown
+    case Some(config) => 
+      try {
+        val openie = new OpenIE(parser = config.createParser(), srl = config.createSrl(), config.binary, config.includeUnknownArg2)
+        run(config, openie) 
+      } catch {
+        case e: MalformedInputException =>
+          System.err.println(
+            "\nError: a MalformedInputException was thrown.\n" +
+              "This usually means there is a mismatch between what is expected and the input file.\n" +
+              "Try changing the input file's character encoding to UTF-8 or specifying the correct character encoding for the input file with '--encoding'.\n"
+          )
+          e.printStackTrace()
+      }
+    case None => //println(argumentParser.usage)
   }
 
   /***
    * Main method with structured arguments.
    */
-  def run(config: Config) {
+  def run(config: Config, openie: OpenIE) {
     // the extractor system
-    val openie = new OpenIE(parser=config.createParser(), srl=config.createSrl(),config.binary, config.includeUnknownArg2)
+    //val openie = new OpenIE(parser=config.createParser(), srl=config.createSrl(),config.binary, config.includeUnknownArg2)
     
     println("Initializing Language Model")
     ListExtractorLanguageModelBasedExtractor.languageModel = ListExtractorLanguageModelBasedExtractor.getLanguageModel()
     
     println("* * * * * * * * * * * * *")
-    println("* OpenIE 5.0 is ready *")
+    println("* OpenIE 5.1 is ready *")
     println("* * * * * * * * * * * * *")
     
     // a sentencer used if --split is specified
