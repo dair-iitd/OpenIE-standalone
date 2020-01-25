@@ -18,6 +18,21 @@ import edu.knowitall.srlie.confidence.SrlFeatureSet
 import edu.knowitall.common.Timing
 
 class SrlExtractor(val srl: Srl = new ClearSrl()) {
+
+  val relation_filter_url = Option(this.getClass.getResource("relation_filter.txt")).getOrElse {
+    throw new IllegalArgumentException("Could not load relation_filter.txt")
+  }
+  
+  private final val relation_filter_array = Source.fromInputStream(relation_filter_url.openStream(), "UTF-8").getLines().map(_.trim()).toArray
+  
+  def filter_relation_extraction(extr: SrlExtraction): SrlExtraction = {
+    if(relation_filter_array.contains(extr.relation.text) && extr.arg1.role!= Roles.A0 && extr.arg2s.exists(arg2 => arg2.role == Roles.A0)){
+      SrlExtraction(extr.relation, extr.arg2s.find(_.role==Roles.A0).get, extr.arg2s.map(x => if(x.role.equals(Roles.A0)) extr.arg1 else x), extr.context, extr.negated)
+    }else{
+      extr
+    }
+  }
+
   def apply(dgraph: DependencyGraph): Seq[SrlExtractionInstance] = {
     val frames = srl.apply(dgraph)
     this.extract(dgraph)(frames)
@@ -27,7 +42,8 @@ class SrlExtractor(val srl: Srl = new ClearSrl()) {
     val hierarchy = FrameHierarchy.fromFrames(dgraph, frames).toSeq
     hierarchy.flatMap { hierarchy =>
       val extrs = SrlExtraction.fromFrameHierarchy(dgraph)(hierarchy)
-      extrs.map { extr => SrlExtractionInstance(extr, hierarchy, dgraph) }
+      val filtered_extrs = extrs.map {extr => filter_relation_extraction(extr)}
+      filtered_extrs.map { extr => SrlExtractionInstance(extr, hierarchy, dgraph) }
     }
   }
 }
