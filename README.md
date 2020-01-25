@@ -1,4 +1,4 @@
-Open IE 5.0
+Open IE 5.1
 ======
 This project contains the principal Open Information Extraction (Open IE)
 system from the University of Washington (UW) and Indian Institute of Technology,Delhi (IIT Delhi).  An Open IE system runs over
@@ -46,16 +46,16 @@ To see an example of Open IE being used, please visit http://openie.cs.washingto
 
 ## Improvements over Open IE 4.0
 
-Firstly, Open IE 5.0 improves upon extractions from numerical sentences. For example, consider the following sentence.
+Firstly, Open IE 5.1 improves upon extractions from numerical sentences. For example, consider the following sentence.
 
     Barack Obama is 6 feet tall.
 
-Open IE 5.0 gives the following extractions:
+Open IE 5.1 gives the following extractions:
     
     (Barack Obama, has height of, 6 feet)
     (Barack Obama, is, 6 feet tall)
 
-Open IE 5.0 can also extract implicit numerical relations from units in sentences. For example, consider the following sentence.
+Open IE 5.1 can also extract implicit numerical relations from units in sentences. For example, consider the following sentence.
 
     James Valley has 5 sq kms of fruit orchards.
     
@@ -65,11 +65,11 @@ The extractions are the following:
     (James Valley, has, 5 sq kms of fruit orchards)
     
 
-Secondly, Open IE 5.0 improves upon conjunctive sentences by breaking conjunctions in arguments to generate multiple extractions. For example, consider the following sentence.
+Secondly, Open IE 5.1 improves upon conjunctive sentences by breaking conjunctions in arguments to generate multiple extractions. For example, consider the following sentence.
 
     Jack and Jill visited India, Japan and South Korea.
     
-Open IE 5.0 gives the following extractions:
+Open IE 5.1 gives the following extractions:
 
     (Jack, visited, India)
     (Jill, visited, India)
@@ -79,9 +79,9 @@ Open IE 5.0 gives the following extractions:
     (Jill, visited, South Korea)
     
 
-## Citing Open IE 5.0
+## Citing Open IE 5.1
 
-Open IE 5.0 is a combination of CALMIE(Extraction from conjunctive sentences), BONIE(Extraction from Numerical Sentences), RelNoun (Noun Relations Extraction) and SRLIE. The relevant papers are:
+Open IE 5.1 is a combination of CALMIE(Extraction from conjunctive sentences), BONIE(Extraction from Numerical Sentences), RelNoun (Noun Relations Extraction) and SRLIE. The relevant papers are:
    
    1. CALMIE - Swarnadeep Saha, Mausam. "Open Information Extraction from Conjunctive Sentences." International Conference on Computational Linguistics (COLING). Santa Fe, NM, USA. August 2018. [[paper]](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)
     
@@ -102,8 +102,8 @@ A survey paper summarizing about ten years of progress in Open IE:
 
 ## Research
 
-Open IE 5.0 is the successor to Open IE 4.x and Open IE 4.x is the successor to [Ollie](http://www.gitub.com/knowitall/ollie).
-Open IE 5.0 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical sentences([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences([CALMIE](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
+Open IE 5.1 is the successor to Open IE 4.x and Open IE 4.x is the successor to [Ollie](http://www.gitub.com/knowitall/ollie).
+Open IE 5.1 improves extractions from noun relations([RelNoun](https://homes.cs.washington.edu/~mausam/papers/akbc16.pdf)), numerical sentences([BONIE](https://homes.cs.washington.edu/~mausam/papers/acl17.pdf)) and conjunctive sentences([CALMIE](http://www.cse.iitd.ac.in/~mausam/papers/coling18.pdf)). Whereas Ollie used bootstrapped dependency parse paths to extract relations (see [Open Language Learning for Information Extraction](https://homes.cs.washington.edu/~mausam/papers/emnlp12a.pdf)), Open IE 4.x uses similar argument and relation expansion heuristics to create Open IE extractions from SRL frames.  Open IE 4.x also extends the defintion of Open IE extractions to include n-ary extractions (extractions with 0 or more arguments 2s).
 
 ## Building
 
@@ -162,6 +162,26 @@ You may need to add the above memory options.
     
 The WordNet folder and the data/languageModel file must be placed parallel to the standalone openie jar, while running it.
 
+### Running as HTTP Server
+
+OpenIE 5.1 can be run as a server. For this, server port is required as an argument.
+    
+    java -jar openie-assembly.jar --httpPort 8000
+    
+To run the server with memory options.
+
+    java -Xmx10g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar --httpPort 8000
+    
+To get an extraction from the server use the POST request on '/getExtraction' address. The sentence will go in the body of HTTP request. An example of curl request.
+
+    curl -X POST http://localhost:8000/getExtraction -d 'The U.S. president Barack Obama gave his speech on Tuesday to thousands of people.'
+    
+The response is a JSON list of extractions.
+    
+### Running with Python
+
+Python Wrapper for OpenIE 5.1, along with instructions and examples can be found [here](https://github.com/vaibhavad/python-wrapper-OpenIE5)
+
 ### Command Line Interface
 
 `openie` takes one sentence per line unless `--split` is specified.  If
@@ -182,3 +202,4 @@ chosen by default.
 ### Contact
 
 * Swarnadeep Saha( writetoswarna@gmail.com )
+* Vaibhav Adlakha( vaibhavadlakha95@gmail.com )
