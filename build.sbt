@@ -37,7 +37,10 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-api" % "1.7.5",
   "ch.qos.logback" % "logback-core" % "1.0.13",
   "ch.qos.logback" % "logback-classic" % "1.0.13",
-  "org.scalatest" % "scalatest_2.10" % "2.0.RC1" % "test")
+  "org.scalatest" % "scalatest_2.10" % "2.0.RC1" % "test",
+  "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.8.4",
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.5.3"
+)
 
 //dependencyOverrides ++= Set( // Seq for SBT 1.0.x
 //  "com.google.guava" %% "guava" % "20.0",
