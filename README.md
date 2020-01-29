@@ -123,7 +123,7 @@ Open IE uses scala 2.10.2. In case of a version mismatch problem, try using Scal
 
 ## Using pre-compiled OpenIE standalone jar
 
-If you are unable to compile the jar locally on your machine, you can directly use the jar from [here](https://drive.google.com/file/d/0B9L6Jr6rcJcKZG1idDB6eGp4cTg/view). Note that you would still need the Language Model file and Wordnet folders in the correct locations.
+If you are unable to compile the jar locally on your machine, you can directly use the jar from [here](https://drive.google.com/file/d/19z8LO-CYOfJfV5agm82PZ2JNWNUPIB6D/view?usp=sharing). Note that you would still need the Language Model file and Wordnet folders in the correct locations.
 
 This jar has been compiled on an ubuntu machine. Thus, it might not work if there's a platform (or version) change, in which case it is recommended to build the jar locally.
 
