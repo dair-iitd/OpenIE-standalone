@@ -1,0 +1,9 @@
+<(#{rel}#verb)<(dobj#{quantity}#.+)(nsubj#{arg}#NNP|NN|PRP)>>
+<(#am|is|are|was|were|been|be#VERB)<(nsubj#{rel}#NNP|NN)<(prep#of|for#IN)<(pobj#{arg}#NNP|NN|PRP)>>(attr#{quantity}#.+)>>
+<(#has|have|had|having#VERB)<(dobj#{rel}#NNP|NN)<(prep##IN)<(pobj#{quantity}#.+)>>(nsubj#{arg}#NNP|NN|PRP)>>
+<(#am|is|are|was|were|been|be#VERB)<(nsubj#{arg}#NNP|NN|PRP)(acomp|advmod#{rel}#JJ|RB)<(npadvmod#{quantity}#.+)>>>
+<(#has|have|had|having#VERB)<(nsubj#{arg}#NNP|NN|PRP)(dobj#{quantity}#.+)<(prep#of#IN)<(pobj#{rel}#NNP|NN)>>>>
+<(##VERB)<(attr|acomp#{quantity}#.+)(nsubj#{rel}#NNP|NN)<(poss#{arg}#NNP|NN|PRP\$)>>>
+<(#{rel}#VERB)<(auxpass#am|is|are|was|were|been|be#VERB)(nsubjpass#{arg}#NN|NNP|PRP)(prep##IN)<(pobj#{quantity}#.+)>>
+<(#{rel}#VERB)<(auxpass#am|is|are|was|were|been|be#VERB)(nsubjpass#{quantity}#.+)(prep##IN)<(pobj#{arg}#NN|NNP)>>
+<(#{rel}#verb)<(dobj#{arg}#.+)(nsubj#{quantity}#NNP|NN|PRP)>>

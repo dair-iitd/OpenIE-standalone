@@ -2,4 +2,8 @@ cd srlie
 sbt compile
 sbt publishLocal
 cd ..
+cd ONRE
+sbt compile
+sbt publishLocal
+cd ..
 sbt compile
