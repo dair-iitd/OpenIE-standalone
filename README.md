@@ -148,17 +148,17 @@ First create the stand-alone jar.
 
     sbt clean compile assembly
 
-You may need to add the above memory options.
+You may need to add the below memory options.
 
-    sbt -J-Xmx10000M clean compile assembly
+    sbt -J-Xmx12000M clean compile assembly
 
 Then you can run the resulting jar file as normal.
 
     java -jar openie-assembly.jar
 
-You may need to add the above memory options.
+You may need to add the below memory options.
 
-    java -Xmx10g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar
+    java -Xmx12g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar
     
 The WordNet folder and the data/languageModel file must be placed parallel to the standalone openie jar, while running it.
 
@@ -170,7 +170,7 @@ OpenIE 5.1 can be run as a server. For this, server port is required as an argum
     
 To run the server with memory options.
 
-    java -Xmx10g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar --httpPort 8000
+    java -Xmx12g -XX:+UseConcMarkSweepGC -jar openie-assembly.jar --httpPort 8000
     
 To get an extraction from the server use the POST request on '/getExtraction' address. The sentence will go in the body of HTTP request. An example of curl request.
 
